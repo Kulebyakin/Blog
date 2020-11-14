@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-auto mr-auto"><h5>Posts</h5></div>
+    <div class="col-auto"><%= link_to 'New Post', new_post_path, class:"btn btn-secondary" %></div>
+  </div>
+</div>
+<br>
+
+<% @posts.each do |post| %>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4"><%= post.title %></h1>
+      <p class="lead"><%= post.created_at %></p>
+      <p class="lead"><%= post.article %></p>
+      <p>
+        <%= link_to 'Show', post, class:"btn btn-secondary btn-sm" %> 
+        <%= link_to 'Edit', edit_post_path(post), class:"btn btn-secondary btn-sm" %> 
+        <%= link_to 'Destroy', post, class:"btn btn-outline-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<br>
+
+<%= link_to 'New Post', new_post_path, class:"btn btn-secondary" %>
+<br><br>
