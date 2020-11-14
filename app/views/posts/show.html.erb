@@ -1,11 +1,15 @@
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4"><%= @post.title %></h1>
-      <p class="lead"><%= @post.created_at %></p>
-      <p class="lead"><%= @post.article %></p>
-      <p> 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-auto mr-auto"><h1 class="display-4"><%= @post.title %></h1></div>
+      <div class="col-auto align-self-center">
         <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-secondary btn-sm" %> 
-        <%= link_to 'Back', posts_path, class:"btn btn-secondary btn-sm" %>
-      </p>
+        <%= link_to 'Delete', @post, class:"btn btn-outline-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
     </div>
+    <p class="lead"><%= @post.created_at %></p>
+    <p class="lead"><%= @post.article %></p>
   </div>
+</div>
+  
+<%= link_to 'Back', posts_path, class:"btn btn-secondary btn-sm" %>
