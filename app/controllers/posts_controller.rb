@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :DESC)
   end
 
   # GET /posts/1
@@ -61,6 +63,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def correct_user
+    @post = current_user.posts.find_by(id: params[:id])
+    redirect_to posts_path, notice: "Not authorized to this action" if @post.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -69,6 +76,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :article)
+      params.require(:post).permit(:title, :article, :user_id)
     end
 end
