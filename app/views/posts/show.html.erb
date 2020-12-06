@@ -9,6 +9,7 @@
         <% end %>
       </div>
     </div>
+    <p class="lead"><%= link_to @post.user.email, post_path, style: "color:#555" %></p>
     <p class="lead"><%= @post.created_at %></p>
     <p class="lead"><%= @post.article %></p>
   </div>
