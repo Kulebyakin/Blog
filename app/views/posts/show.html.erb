@@ -18,11 +18,21 @@
 <%= link_to 'Back', posts_path, class:"btn btn-secondary btn-sm" %>
 
 <br><br><h1>Comments:</h1><br>
+
+<% @post.comments.each do |c| %>
+
+<div>
+  <p><%= c.author %><br>
+    <%= c.body %></p>
+    =========================================<br>
+</div>
+
+<% end %>
+<br><br>
+
+
 <%= form_for([@post, @post.comments.build]) do |f| %>
   
-
-
-
   <div class="field form-group">
     <% f.label :author %>
     <%= f.text_field :author, class:"form-control", placeholder:"Author" %>
