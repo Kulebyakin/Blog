@@ -16,3 +16,25 @@
 </div>
   
 <%= link_to 'Back', posts_path, class:"btn btn-secondary btn-sm" %>
+
+<br><br><h1>Comments:</h1><br>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+  
+
+
+
+  <div class="field form-group">
+    <% f.label :author %>
+    <%= f.text_field :author, class:"form-control", placeholder:"Author" %>
+  </div>
+
+  <div class="field form-group">
+    <% f.label :body %>
+    <%= f.text_area :body, class:"form-control", placeholder:"Comment", rows:"5" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-secondary" %>
+  </div>
+
+<% end %>
