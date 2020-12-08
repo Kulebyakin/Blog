@@ -6,10 +6,9 @@
     <% end %>
   </div>
 </div>
-<br>
 
 <% @posts.each do |post| %>
-  <div class="jumbotron jumbotron-fluid">
+  <div class="p-3 border bg-light mt-3">
     <div class="container">
       <div class="row">
         <div class="col-auto mr-auto"><h1 class="display-4"><%= post.title %></h1></div>
@@ -24,7 +23,7 @@
       <p class="lead"><%= post.user.username %></p>
       <p class="lead"><%= post.created_at %></p>
       <p class="lead"><%= post.article %></p>
-      <p class="lead"><%= link_to 'Add a comment', post %>
+      <p class=""><%= link_to 'Add a comment', post %>
         <% if post.comments.count > 0 %>
          | <%= link_to "Comments(#{post.comments.count})", post %></p>
         <% end %>
