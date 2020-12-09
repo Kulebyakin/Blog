@@ -22,7 +22,7 @@
       </div>
       <p class="lead"><%= post.user.username %></p>
       <p class="lead"><%= post.created_at %></p>
-      <p class="lead"><%= post.article %></p>
+      <p class="lead"><%= simple_format(post.article) %></p>
       <p class=""><%= link_to 'Add a comment', post %>
         <% if post.comments.count > 0 %>
          | <%= link_to "Comments(#{post.comments.count})", post %></p>

@@ -9,9 +9,9 @@
         <% end %>
       </div>
     </div>
-    <p class="lead"><%= link_to @post.user.email, post_path, style: "color:#555" %></p>
+    <p class="lead"><%= @post.user.username %></p>
     <p class="lead"><%= @post.created_at %></p>
-    <p class="lead"><%= @post.article %></p>
+    <p class="lead"><%= simple_format(@post.article) %></p>
   </div>
 </div>
   
