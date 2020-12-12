@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+
+  home:
+    about_us: "About us"
